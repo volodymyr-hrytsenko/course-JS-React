@@ -1,20 +1,31 @@
+let money,
+    time;
 
-var leftBorderWidth = 1;
-let seccond = 2;
-const pi = 3.14;
+money = prompt("Ваш бюджет на месяц?");
+time = prompt("Введите дату в формате YYYY-MM-DD");
 
-// let answer = confirm("Are you hear?");
-// console.log(answer);
+let appData = {
+    budget : money,
+    timesData : time,
+    expenses : {},
+    optionalExpenses : {},
+    income : [],
+    savings : false
+};
 
-// let answer = +prompt("You are 18 years old?", "Yes");
-// //унарний плюс повертає числове значення
-// console.log(typeof(answer));
+console.log(appData.budget);
 
-let incr = 10,
-    decr = 10;
+let costs,
+    howMarch;
 
-console.log(incr++);
-console.log(decr--);
+costs = prompt("Введите обязательную статью расходов в этом месяце");
+howMarch = +prompt("Во сколько обойдется?");
+appData.expenses[costs] = howMarch;
 
-console.log("2" == 2);
-console.log("2" === 2); // Перевірка по типах даних
+costs = prompt("Введите обязательную статью расходов в этом месяце");
+howMarch = +prompt("Во сколько обойдется?");
+appData.expenses[costs] = howMarch;
+
+console.log(appData.expenses);
+
+alert("Ваш бюджет на месяц = " + appData.budget / 30);
