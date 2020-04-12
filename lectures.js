@@ -1,4 +1,4 @@
-/* --- умови ------- */
+/* --- умови -------------------- */
 
 let num = 70;
 
@@ -20,7 +20,7 @@ switch (num) {
     break;
 }
 
-/* ------- цикли ------ */
+/* ------- цикли ------------------------ */
 
 let numTwo = 50;
 
@@ -41,3 +41,31 @@ for (let i = 1; i < 8; i++) {
     }
     console.log(i);
 }
+
+
+/* ------- функції ------------------------- */
+
+//arrow function
+let add = (a, b) => a + b;
+console.log(add(2,5));
+
+// function exprission
+let multiply  = function (a, b) {
+    return (a * b);
+};
+console.log(multiply(2,5));
+
+// function declaration
+function retVar() {
+    let num = 50;
+    return num;
+}
+
+let otherNum = retVar();
+console.log(otherNum);
+
+let twelve = "12.2px";
+
+// console.log(Math.round(twelve));
+console.log(parseInt(twelve));
+console.log(parseFloat(twelve));
