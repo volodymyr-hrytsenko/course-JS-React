@@ -30,4 +30,14 @@ for (let i = 0; i < 2; i++) {
 appData.moneyPerDay = appData.budget / 30;
 alert("Ваш бюджет на месяц = " + appData.moneyPerDay);
 
+if (appData.moneyPerDay <= 100) {
+    console.log("Мінімальний дохід");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Середній дохід");
+} else if (appData.moneyPerDay >= 2000) {
+    console.log("Високий дохід");
+} else {
+    console.log("Сталася помилка");
+}
+
 console.log(appData);
