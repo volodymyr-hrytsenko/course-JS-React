@@ -130,7 +130,7 @@ let solder = {
 
 let john = {
     health: 100
-}
+};
 
 john.__proto__ = solder;
 
