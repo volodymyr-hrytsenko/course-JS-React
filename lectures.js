@@ -3,7 +3,7 @@
 let num = 70;
 
 // тернарна операція
-(num == 50) ? console.log("Вірно"): console.log("Хибно");
+// (num == 50) ? console.log("Вірно"): console.log("Хибно");
 
 switch (num) {
     case num > 80:
@@ -76,12 +76,34 @@ console.log(parseFloat(twelve));
 let parametrs = {
     width: 1024,
     height: 800,
-    color: "red",
-    opasity: 80
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    opasity: 80,
+    makeTest: function () {
+        console.log('test');
+    }
 };
 
+
+parametrs.makeTest();
+
+// деструктуризація
+const {
+    border,
+    bg
+} = parametrs.colors;
+console.log(border);
+
 for (let key in parametrs) {
-    console.log(key + ": " + parametrs[key] + ";");
+    if (typeof (parametrs[key]) === 'object') {
+        for (let i in parametrs[key]) {
+            console.log(i + ": " + parametrs[key][i] + ";");
+        }
+    } else {
+        console.log(key + ": " + parametrs[key] + ";");
+    }
 }
 
 delete parametrs.opasity;
@@ -120,19 +142,73 @@ function compareNum(a, b) {
 }
 
 console.log(numbers);
+/* -------- Передача по силкі і по значенню (поверхнеае клонування)---- */
 
+// обєкти
+const object = {
+    a: 2,
+    d: 34
+};
+
+const clone = Object.assign({}, object);
+
+object.a = 27;
+
+console.log(clone);
+console.log(object);
+
+// масиви
+const oldArray = ['s', 'f', 'n', 'f'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'hgh';
+
+console.log(newArray);
+console.log(oldArray);
+
+// spread  оператор
+
+const video = ['youtube', 'vimeo', 'instagram'],
+    blogs = ['wordpress', 'livejormal', 'blogger'],
+    internet = [...video, ...blogs, 'facebook'];
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const number = [2, 45, 4];
+log(...number);
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {
+    ...q
+};
+
+newObj.one = 111;
+
+console.log(q);
+console.log(newObj);
 /* ------- ООП ------------------------- */
 
-let solder = {
-    health: 400,
-    arme: 100
+const solder = {
+    health: 100,
+    arrm: 400,
+    sayHello: function () {
+        console.log('Hello');
+    }
 };
 
-let john = {
-    health: 100
-};
+const jonh = Object.create(solder);
 
-john.__proto__ = solder;
+// const jonh = {
+//     health: 100
+// };
 
-console.log(john);
-console.log(john.arme);
+Object.setPrototypeOf(jonh, solder);
