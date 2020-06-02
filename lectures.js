@@ -212,3 +212,67 @@ const jonh = Object.create(solder);
 // };
 
 Object.setPrototypeOf(jonh, solder);
+
+/* ------- динамическая типизация ------------- */
+
+// to String
+
+// 1
+console.log(typeof (String(null)));
+
+// 2 конкатинація
+console.log(typeof (5 + ''));
+
+// to number
+
+// 1
+console.log(typeof (Number('4')));
+
+// 2 унарний плюс
+console.log(typeof (+'4'));
+
+// 3
+console.log(typeof (parseInt("15px", 10)));
+
+// to boolean
+
+// false 
+// 0, '', null, undefined, NaN;
+// true
+// все інше
+
+// 1
+console.log(typeof (Boolean('4')));
+
+// 2
+console.log(typeof (!!'4'));
+
+/* ------- Задачі ------------- */
+// let y = 1;
+// let x = y = 2;
+// console.log(x);
+
+// И запинается на лжи
+console.log(2 && 1 && null && 0 && undefined);
+
+//  ИЛИ запинаєтся на правде
+console.log(null || 2 && 3 || 4);
+
+console.log(+"Infinity");
+
+/* ------- Робота з елементами сторінки ------------- */
+//  document.querySelectorAll('.class');
+
+const div = document.createElement('div'),
+    otherDiv = "";
+
+div.classList.add('class');
+
+div.style.cssText = 'background-color: red;';
+
+// міняємо один  елемент на інший
+div.replaceWith(otherDiv);
+
+// елементи subMenu візмуться тільки з батьківськогог Menu
+const menu = document.querySelector('.menu'),
+subMenu = menu.querySelectorAll('li');
