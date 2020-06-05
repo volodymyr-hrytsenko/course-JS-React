@@ -78,7 +78,8 @@ let parametrs = {
     height: 800,
     colors: {
         border: 'black',
-        bg: 'red'
+        bg: 'red',
+        height: 987
     },
     opasity: 80,
     makeTest: function () {
@@ -94,7 +95,9 @@ const {
     border,
     bg
 } = parametrs.colors;
+
 console.log(border);
+console.log(bg);
 
 for (let key in parametrs) {
     if (typeof (parametrs[key]) === 'object') {

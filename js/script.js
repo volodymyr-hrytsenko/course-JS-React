@@ -21,22 +21,32 @@ const movieDB = {
         "Ла-ла лэнд",
         "Одержимость",
         "Скотт Пилигрим против..."
-    ],
-
-    generateListMovies: function () {
-        const promoInteractiveList = document.querySelector('.promo__interactive-list');
-        movieDB.movies.forEach((item, i) => {
-            const li = document.createElement('li'),
-                div = document.createElement('div');
-            li.classList.add('promo__interactive-item');
-            li.textContent = `${i+1}. ${item}`;
-            div.classList.add('delete');
-            li.append(div);
-            promoInteractiveList.append(li);
-        });
-    }
+    ]
 };
 
-document.querySelector('.promo__bg').style.cssText = 'background: url(../img/bg.jpg) center center/cover; background-position: top;';
+const adv = document.querySelectorAll('.promo__adv img'),
+    poster = document.querySelector('.promo__bg'),
+    ganre = poster.querySelector('.promo__genre'),
+    movieList = document.querySelector('.promo__interactive-list');
 
-movieDB.generateListMovies();
+adv.forEach(item => item.remove());
+
+ganre.textContent = 'ДРАМА';
+
+console.log(poster);
+poster.style.backgroundImage = 'url("../img/bg.jpg")';
+
+let generateListMovies = function () {
+    movieList.innerHTML = '';
+    movieDB.movies.sort().forEach((item, i) => {
+        const li = document.createElement('li'),
+            div = document.createElement('div');
+        li.classList.add('promo__interactive-item');
+        li.textContent = `${i+1}. ${item}`;
+        div.classList.add('delete');
+        li.append(div);
+        movieList.append(li);
+    });
+}
+
+generateListMovies();
