@@ -47,6 +47,6 @@ let generateListMovies = function () {
         li.append(div);
         movieList.append(li);
     });
-}
+};
 
 generateListMovies();
