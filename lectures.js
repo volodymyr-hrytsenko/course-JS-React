@@ -278,4 +278,70 @@ div.replaceWith(otherDiv);
 
 // елементи subMenu візмуться тільки з батьківськогог Menu
 const menu = document.querySelector('.menu'),
-subMenu = menu.querySelectorAll('li');
+    subMenu = menu.querySelectorAll('li');
+
+
+/* ------- Обробники подій ------------- */
+
+const btn = document.getElementById("dsfg");
+
+btn.addEventListener('click', () => {
+    alert('Click');
+});
+
+btn.addEventListener('click', (event) => {
+    console.log(event.target);
+    event.target.remove();
+    alert('Second click');
+});
+
+let i = 0;
+const deleteElement = (e) => {
+    console.log(e.target);
+    i++;
+    if (i == 1){
+        btn.removeEventListener('click', deleteElement);
+    }
+};
+
+btn.addEventListener('click', deleteElement);
+
+//  відміна стандартної повеедінки в браузері
+const link = document.querySelector('a');
+
+link.addEventListener('click', function(e){
+    e.preventDefault();
+     console.log(e.target);
+});
+
+// онаковий обробник на безліч елементів
+const buttons = document.querySelectorAll('.buttons');
+
+buttons.forEach(el => {
+    el.addEventListener('click', deleteElement, {once: true});
+});
+
+/* ------- Навігація по DOM ------------- */
+
+// console.log(document.body.childNodes);
+
+// console.log(document.body.firstChild);
+
+// console.log(document.body.lastChild);
+
+// get node
+console.log(document.querySelector("#id").parentNode.parentNode);
+
+console.log(document.querySelector('[data-id="atribute"]').previousSibling);
+
+console.log(document.querySelector('[data-id="atribute"]').nextSibling);
+
+// get element
+console.log(document.querySelector("#id").parentElement);
+
+for (let node of document.body.childNodes){
+    if( node.nodeName == "#text"){
+        continue;
+    }
+    console.log(node);
+}
