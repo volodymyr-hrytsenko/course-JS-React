@@ -299,7 +299,7 @@ let i = 0;
 const deleteElement = (e) => {
     console.log(e.target);
     i++;
-    if (i == 1){
+    if (i == 1) {
         btn.removeEventListener('click', deleteElement);
     }
 };
@@ -309,16 +309,18 @@ btn.addEventListener('click', deleteElement);
 //  відміна стандартної повеедінки в браузері
 const link = document.querySelector('a');
 
-link.addEventListener('click', function(e){
+link.addEventListener('click', function (e) {
     e.preventDefault();
-     console.log(e.target);
+    console.log(e.target);
 });
 
 // онаковий обробник на безліч елементів
 const buttons = document.querySelectorAll('.buttons');
 
 buttons.forEach(el => {
-    el.addEventListener('click', deleteElement, {once: true});
+    el.addEventListener('click', deleteElement, {
+        once: true
+    });
 });
 
 /* ------- Навігація по DOM ------------- */
@@ -339,8 +341,8 @@ console.log(document.querySelector('[data-id="atribute"]').nextSibling);
 // get element
 console.log(document.querySelector("#id").parentElement);
 
-for (let node of document.body.childNodes){
-    if( node.nodeName == "#text"){
+for (let node of document.body.childNodes) {
+    if (node.nodeName == "#text") {
         continue;
     }
     console.log(node);
@@ -371,10 +373,33 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* -------------- параметри за замовчуванням --------------------*/
+/* -------------- параметри за замовчуванням і деструктуризація--------------------*/
 
-function fetchData (data, count = 0){
+function fetchData(data, count = 0) {
     console.log(`Отримали ${data} в кількості ${count}`);
 }
 
 fetchData('something', 42);
+
+// ------------
+function conect({
+    host = 'lokalhost',
+    port = 3000,
+    user = 'defoult'
+} = {}) {
+    console.log(`host: ${host}, port: ${port}, user: ${user}`);
+}
+
+// conect();
+
+conect({
+    host: 'lokalhost',
+    port: 5000
+});
+
+// array
+
+const numbers = [[1, 4], [7, 3]];
+
+const [[a, b], [c, d]] = numbers;
+console.log(a, b, c, d);
