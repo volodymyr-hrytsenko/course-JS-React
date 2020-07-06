@@ -1,0 +1,23 @@
+{
+  "name": "course-js-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lectures.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volodymyr-hrytsenko/course-JS-React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/volodymyr-hrytsenko/course-JS-React/issues"
+  },
+  "homepage": "https://github.com/volodymyr-hrytsenko/course-JS-React#readme",
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-plugin-react": "^7.20.3"
+  }
+}

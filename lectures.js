@@ -345,3 +345,36 @@ for (let node of document.body.childNodes){
     }
     console.log(node);
 }
+
+/* ------- События на мобильных устройствах ------------- */
+
+// hammer.js
+
+// touchstart
+// touchmove
+// touchend
+// toucheenter
+// toucheleave
+// touchecancel
+
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('#box');
+
+    box.addEventListener('touchestart', (e) => {
+        e.preventDefault();
+
+        // e.touches
+        // e.targetTouches
+        // e.changedTouches
+
+        console.log('Start');
+    });
+});
+
+/* -------------- параметри за замовчуванням --------------------*/
+
+function fetchData (data, count = 0){
+    console.log(`Отримали ${data} в кількості ${count}`);
+}
+
+fetchData('something', 42);
